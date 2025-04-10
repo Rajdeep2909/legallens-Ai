@@ -1,5 +1,5 @@
 import streamlit as st
-import PyPDF2
+import pypdf2
 import openai
 
 st.set_page_config(page_title="LegalLens AI", layout="centered", page_icon="📄")
@@ -10,7 +10,7 @@ st.subheader("Upload your property PDF to get a legal summary, risk level, and m
 uploaded_file = st.file_uploader("Upload Property Document (PDF)", type="pdf")
 
 if uploaded_file:
-    pdf_reader = PyPDF2.PdfReader(uploaded_file)
+    pdf_reader = pypdf2.PdfReader(uploaded_file)
     text = ""
     for page in pdf_reader.pages:
         text += page.extract_text() or ""
